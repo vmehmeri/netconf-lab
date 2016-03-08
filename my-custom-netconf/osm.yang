@@ -1,0 +1,42 @@
+module osm {
+    yang-version 1;
+    namespace "urn:sdnhub:odl:tutorial:osm";
+    prefix osm;
+
+    description "Optical Switching Matrix configuration";
+
+    revision "2016-02-05" {
+        description "Initial version.";
+    }
+
+    list interfaces {
+        key id;
+        leaf id {
+            type string;
+        }
+        leaf network-element {
+            description "Network element connected to interface";
+            type string;
+        }
+    }
+
+    container matrix {
+        list cross-connections {
+            key connection-id;
+            leaf connection-id {
+                type uint32;
+            }
+
+            leaf source-if {
+                type string;
+            }
+
+            leaf sink-if {
+                type string;
+            }
+
+        }
+
+
+    }
+}

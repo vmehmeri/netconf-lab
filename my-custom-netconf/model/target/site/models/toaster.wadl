@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"  xmlns:toast="http://netconfcentral.org/ns/toaster">
+
+	<grammars>
+		<include href="toaster.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="config">
+			<method name="POST">
+				<request>
+					<representation mediaType="application/xml" element="toaster"/>
+					<representation mediaType="text/xml" element="toaster"/>
+					<representation mediaType="application/json" element="toaster"/>
+					<representation mediaType="application/yang.data+xml" element="toaster"/>
+					<representation mediaType="application/yang.data+json" element="toaster"/>
+				</request>
+			</method>
+			<resource path="toaster:toaster">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="toaster"/>
+						<representation mediaType="text/xml" element="toaster"/>
+						<representation mediaType="application/json" element="toaster"/>
+						<representation mediaType="application/yang.data+xml" element="toaster"/>
+						<representation mediaType="application/yang.data+json" element="toaster"/>
+					</response>
+				</method>
+				<method name="DELETE" />
+				<method name="PUT">
+					<request>
+						<representation mediaType="application/xml" element="toaster"/>
+						<representation mediaType="text/xml" element="toaster"/>
+						<representation mediaType="application/json" element="toaster"/>
+						<representation mediaType="application/yang.data+xml" element="toaster"/>
+						<representation mediaType="application/yang.data+json" element="toaster"/>
+					</request>
+				</method>
+			</resource>
+		</resource>
+		<resource path="operations">
+			<resource path="toaster:cancel-toast">
+				<method name="POST">
+				</method>
+			</resource>
+			<resource path="toaster:make-toast">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+				</method>
+			</resource>
+			<resource path="toaster:restock-toaster">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>toaster</title>
+  </head>
+  <body>
+    <h1>toaster</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>toast</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>http://netconfcentral.org/ns/toaster</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2009-11-20</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td>YANG version of the TOASTER-MIB.</td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+    
+    <div>
+        <h3>Type Definitions Summary</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                <a href="#DisplayString"><strong>DisplayString</strong></a>
+                </td>
+                <td>
+                YANG version of the SMIv2 DisplayString TEXTUAL-CONVENTION.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Identities Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#frozen-bagel"><strong>frozen-bagel</strong></a>
+            </td>
+            <td>
+            Frozen bagel.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#frozen-waffle"><strong>frozen-waffle</strong></a>
+            </td>
+            <td>
+            Frozen waffle.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#hash-brown"><strong>hash-brown</strong></a>
+            </td>
+            <td>
+            Hash browned potatos.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#toast-type"><strong>toast-type</strong></a>
+            </td>
+            <td>
+            Base for all bread types supported by the toaster.
+                       New bread types not listed here nay be added in the
+                       future.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#wheat-bread"><strong>wheat-bread</strong></a>
+            </td>
+            <td>
+            Wheat bread.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#white-bread"><strong>white-bread</strong></a>
+            </td>
+            <td>
+            White bread.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#wonder-bread"><strong>wonder-bread</strong></a>
+            </td>
+            <td>
+            Wonder bread.
+            </td>
+        </tr>
+    </table>
+    <h3>Child Nodes Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#toaster"><strong>toaster</strong></a>
+            </td>
+            <td>
+            Top-level container for all toaster database objects.
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#toasterOutOfBread"><strong>toasterOutOfBread</strong></a>
+            </td>
+            <td>
+            Indicates that the toaster has run of out bread.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#toasterRestocked"><strong>toasterRestocked</strong></a>
+            </td>
+            <td>
+            Indicates that the toaster has run of out bread.
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#cancel-toast"><strong>cancel-toast</strong></a>
+            </td>
+            <td>
+            Stop making toast, if any is being made.
+                           A 'resource-denied' error will be returned
+                           if the toaster service is disabled.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#make-toast"><strong>make-toast</strong></a>
+            </td>
+            <td>
+            Make some toast.
+                           The toastDone notification will be sent when
+                           the toast is finished.
+                           An 'in-use' error will be returned if toast
+                           is already being made.
+                           A 'resource-denied' error will be returned
+                           if the toaster service is disabled.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#restock-toaster"><strong>restock-toaster</strong></a>
+            </td>
+            <td>
+            Restocks the toaster with the amount of bread specified.
+            </td>
+        </tr>
+    </table>
+    
+    <h2>Type Definitions</h2>
+    <ul>
+    <li>
+        <h3 id="DisplayString">DisplayString</h3>
+        <ul>
+        <li>
+            Description: YANG version of the SMIv2 DisplayString TEXTUAL-CONVENTION.
+        </li>
+        <li>
+            Reference: RFC 2579, section 2.
+        </li>
+        <li>
+            Base type: (urn:ietf:params:xml:ns:yang:1)string
+        </li>
+        <li>
+            Length restrictions:
+        </li>
+        <ul>
+        <li>
+        &lt;0, 255&gt;
+        </li>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Identities</h2>
+    <ul>
+    <li>
+        <h3 id="frozen-bagel">frozen-bagel</h3>
+        <ul>
+        <li>
+            Description: Frozen bagel.
+        </li>
+        <li>
+            base: toast-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="frozen-waffle">frozen-waffle</h3>
+        <ul>
+        <li>
+            Description: Frozen waffle.
+        </li>
+        <li>
+            base: toast-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="hash-brown">hash-brown</h3>
+        <ul>
+        <li>
+            Description: Hash browned potatos.
+        </li>
+        <li>
+            base: toast-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="toast-type">toast-type</h3>
+        <ul>
+        <li>
+            Description: Base for all bread types supported by the toaster.
+                       New bread types not listed here nay be added in the
+                       future.
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="wheat-bread">wheat-bread</h3>
+        <ul>
+        <li>
+            Description: Wheat bread.
+        </li>
+        <li>
+            base: toast-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="white-bread">white-bread</h3>
+        <ul>
+        <li>
+            Description: White bread.
+        </li>
+        <li>
+            base: toast-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="wonder-bread">wonder-bread</h3>
+        <ul>
+        <li>
+            Description: Wonder bread.
+        </li>
+        <li>
+            base: toast-type
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    <h2>Datastore Structure</h2>
+    <strong>toaster</strong>
+    <ul>
+    <li>
+        <a href="#toaster"><strong>toaster</strong>
+        </a>
+        <ul>
+        <li>
+            toasterManufacturer
+        </li>
+        <li>
+            toasterModelNumber
+        </li>
+        <li>
+            toasterStatus
+        </li>
+        <li>
+            darknessFactor
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Child nodes</h2>
+    
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#toaster">toaster</a>
+    </strong> (container)
+    <ul>
+        <li>configuration data: <strong>true</strong></li>
+    </ul>
+    </li>
+    </ul>
+    
+    <h3 id="toaster">
+        toaster
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>toaster:toaster</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>toasterManufacturer</strong> (leaf)
+    <ul>
+        <li>configuration data: <strong>false</strong></li>
+        <li>mandatory: <strong>true</strong></li>
+    </ul>
+    </li>
+    <li><strong>toasterModelNumber</strong> (leaf)
+    <ul>
+        <li>configuration data: <strong>false</strong></li>
+        <li>mandatory: <strong>true</strong></li>
+    </ul>
+    </li>
+    <li><strong>toasterStatus</strong> (leaf)
+    <ul>
+        <li>configuration data: <strong>false</strong></li>
+        <li>mandatory: <strong>true</strong></li>
+    </ul>
+    </li>
+    <li><strong>darknessFactor</strong> (leaf)
+    <ul>
+        <li>configuration data: <strong>true</strong></li>
+        <li>mandatory: <strong>false</strong></li>
+    </ul>
+    </li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;toaster xmlns="http://netconfcentral.org/ns/toaster"&gt;<!-- Child nodes -->
+        <!-- toasterManufacturer -->
+            &lt;toasterManufacturer xmlns="http://netconfcentral.org/ns/toaster"&gt;...&lt;/toasterManufacturer&gt;
+        <!-- toasterModelNumber -->
+            &lt;toasterModelNumber xmlns="http://netconfcentral.org/ns/toaster"&gt;...&lt;/toasterModelNumber&gt;
+        <!-- toasterStatus -->
+            &lt;toasterStatus xmlns="http://netconfcentral.org/ns/toaster"&gt;...&lt;/toasterStatus&gt;
+        <!-- darknessFactor -->
+            &lt;darknessFactor xmlns="http://netconfcentral.org/ns/toaster"&gt;...&lt;/darknessFactor&gt;
+        
+        &lt;/toaster&gt;
+    </pre>
+    </h3>
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="toasterOutOfBread">toasterOutOfBread
+    </h3>
+        Indicates that the toaster has run of out bread.
+    
+    <h3 id="toasterRestocked">toasterRestocked
+    </h3>
+        Indicates that the toaster has run of out bread.
+        <ul>
+        <strong><li>
+            leaf: amountOfBread
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Indicates the amount of bread that was re-stocked
+        </li>
+        <li>
+            type: (urn:ietf:params:xml:ns:yang:1)uint32
+        </li>
+        </ul>
+        </ul>
+    
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="cancel-toast">cancel-toast
+    </h3>
+        <ul>
+            <li>
+                Description: Stop making toast, if any is being made.
+                               A 'resource-denied' error will be returned
+                               if the toaster service is disabled.
+            </li>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+        </ul>
+    <h3 id="make-toast">make-toast
+    </h3>
+        <ul>
+            <li>
+                Description: Make some toast.
+                               The toastDone notification will be sent when
+                               the toast is finished.
+                               An 'in-use' error will be returned if toast
+                               is already being made.
+                               A 'resource-denied' error will be returned
+                               if the toaster service is disabled.
+            </li>
+            <ul>
+            <strong>
+            <li id="make-toast/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: toasterDoneness
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: This variable controls how well-done is the
+                                       ensuing toast. It should be on a scale of 1 to 10.
+                                       Toast made at 10 generally is considered unfit
+                                       for human consumption; toast made at 1 is warmed
+                                       lightly.
+            </li>
+            <li>
+                type: <a href="#make-toast/input/toasterDoneness/uint32">uint32</a>
+            </li>
+            <li>
+                default: 5
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: toasterToastType
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: This variable informs the toaster of the type of
+                                       material that is being toasted. The toaster
+                                       uses this information, combined with
+                                       toasterDoneness, to compute for how
+                                       long the material must be toasted to achieve
+                                       the required doneness.
+            </li>
+            <li>
+                type: (urn:ietf:params:xml:ns:yang:1)identityref
+            </li>
+            <li>
+                default: wheat-bread
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+        </ul>
+    <h3 id="restock-toaster">restock-toaster
+    </h3>
+        <ul>
+            <li>
+                Description: Restocks the toaster with the amount of bread specified.
+            </li>
+            <ul>
+            <strong>
+            <li id="restock-toaster/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: amountOfBreadToStock
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Indicates the amount of bread to re-stock
+            </li>
+            <li>
+                type: (urn:ietf:params:xml:ns:yang:1)uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>
