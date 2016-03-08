@@ -1,0 +1,14 @@
+{
+        "turing-machine:turing-machine" : {
+		"turing-machine:transition-function" : { 
+			"turing-machine:delta": {
+				"turing-machine:label":"bla",
+				"turing-machine:input": { 
+					"turing-machine:state":"0",
+					"turing-machine:symbol":"0"
+				}
+			}
+		}
+	}	
+ 
+}
